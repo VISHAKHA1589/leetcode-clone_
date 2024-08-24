@@ -1,0 +1,41 @@
+// Define your custom spacer value if needed
+$spacer: 1rem; // Adjust the base spacer unit as needed
+
+.mt-0 {
+  margin-top: 0 !important;
+}
+
+.ml-1 {
+  margin-left: ($spacer * 0.25) !important;
+}
+
+.ml-2 {
+  margin-left: ($spacer * 0.50) !important;
+}
+
+.m-4 {
+  margin: ($spacer * 0.25) !important;
+}
+
+
+.px-2 {
+  padding-left: ($spacer * 0.5) !important;
+  padding-right: ($spacer * 0.5) !important;
+}
+
+.p-3 {
+  padding: $spacer !important;
+}
+
+.text-yellow {
+  color: #ffd7a5;
+}
+@media (min-width: 992px) {
+  .ml-lg-10 {
+  margin-left: ($spacer * 15) !important;
+}
+
+}
+.cursor-pointer {
+  cursor: pointer !important;
+}

@@ -8,6 +8,7 @@ import HomePage from "./pages/homePage";
 import Navbar from "./pages/Navbar";
 import Questions from "./pages/Questions";
 import QuestionDetail from "./pages/QuestionDetail";
+import CodeEditor from "./pages/components/codeEditor";
 
 function App() {
   return (
@@ -16,8 +17,9 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/questions/:id" element={<QuestionDetail />} />
+
         <Route path="/question-detail" element={<QuestionDetail />} />
-      </Routes>
+      </Routes>{" "}
     </BrowserRouter>
   );
 }

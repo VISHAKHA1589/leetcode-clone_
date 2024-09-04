@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import CodeEditor from "./components/codeEditor";
 import LanguageSelection from "./components/languageSelector";
+import { useContext } from "react";
 
 import Output from "./components/Output";
 
@@ -10,6 +11,14 @@ const QuestionDetail = () => {
   const [question, setQuestion] = useState();
   const [loading, setLoading] = useState(true);
   let { id } = useParams();
+  const [language, setLanguage] = useState("");
+  const [editorRef, setEditorRef] = useState({});
+
+  const handleParams = (event) => {
+    setLanguage(event.language);
+    setEditorRef(event.editorRef);
+    console.log(event);
+  };
 
   useEffect(() => {
     const fetchQuestion = async () => {
@@ -41,12 +50,12 @@ const QuestionDetail = () => {
           <h6 className="text-secondary">
             acceptance: {question.acceptance}
           </h6>{" "}
-          <Output />
+          <Output editorRef={editorRef} language={language} />
         </div>
       </div>
 
-      <div className=" h-100 w-50 border border-grey rounded">
-        <CodeEditor />
+      <div className=" h-50 w-50 border border-grey rounded">
+        <CodeEditor onEmitLang={handleParams} />
       </div>
     </div>
   );
